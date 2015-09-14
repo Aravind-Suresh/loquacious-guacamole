@@ -18,17 +18,17 @@ TSHIRT_TYPES = (
 SPORTS_TYPES = (
     ('athletics', 'Athletics'),
     ('badminton', 'Badminton'),
-    ('basketball', 'BasketBall'),
+    ('basket ball', 'Basket Ball'),
     ('cricket', 'Cricket'),
     ('football', 'Football'),
     ('hockey', 'Hockey'),
     ('squash', 'Squash'),
     ('swimming', 'Swimming'),
-    ('tabletennis', 'TableTennis'),
+    ('table tennis', 'Table Tennis'),
     ('tennis', 'Tennis'),
-    ('volleyball', 'VolleyBall'),
-    ('waterpolo', 'WaterPolo'),
-    ('weightlifting', 'Weightlifting')
+    ('volley ball', 'Volley Ball'),
+    ('water polo', 'Water Polo'),
+    ('weight lifting', 'Weight Lifting')
 )
 
 

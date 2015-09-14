@@ -18,6 +18,13 @@ border-radius: 1em;">
 
 
 <script>
+if(document.getElementById('sport').value == 'water polo') {
+    document.getElementById('id_relay_event1').parentElement.parentElement.style.display = 'none';
+    document.getElementById('id_relay_event2').parentElement.parentElement.style.display = 'none';
+    document.getElementById('id_event1').parentElement.parentElement.style.display = 'none';
+    document.getElementById('id_event2').parentElement.parentElement.style.display = 'none';
+    document.getElementById('id_event3').parentElement.parentElement.style.display = 'none';
+}
 var labels = document.getElementsByTagName('LABEL');
 var arr = ["Name", "Gender", "Blood group", "Roll number", "Event 1", "Event 2", "Event 3", "Relay event 1", "Relay event 2", "Phone number", 
 "Parent's phone number", "Email ID", "Image", "Food", "T shirt size"]

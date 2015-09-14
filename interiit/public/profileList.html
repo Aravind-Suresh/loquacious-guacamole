@@ -21,11 +21,15 @@ td {
 			<!-- <th> T-SHIRT </th> -->
 			<!-- <th>ROLL NO.</th> -->
 			<!-- <th>BLOOD GROUP</th> -->
+			{% if sport != 'water polo' %}
 			<th>EVENT 1</th>
 			<th>EVENT 2</th>
 			<th>EVENT 3</th>
 			<th>RELAY EVENT 1</th>
 			<th>RELAY EVENT 2</th>
+			{% else %}
+			<th>EVENT</th>
+			{% endif %}
 			<th></th>
 			<th></th>
 		</tr>
@@ -42,11 +46,15 @@ td {
 			<!-- <td>{{ profile.tshirt_size }}</td> -->
 			<!-- <td>{{ profile.Roll_number }}</td> -->
 			<!-- <td>{{ profile.blood_group }}</td> -->
+			{% if sport != 'water polo' %}
 			<td>{{ profile.event1}}</td>
 			<td>{{ profile.event2}}</td>
 			<td>{{ profile.event3}}</td>
 			<td>{{ profile.relay_event1}}</td>
 			<td>{{ profile.relay_event2}}</td>
+			{% else %}
+			<td>Water Polo</td>
+			{% endif %}
 			<td><a data-target="#registermodal" href = '/profile/edit/{{ profile.pk }}'> Edit </a></td>
 			<td><a href = '/profile/delete/{{ profile.pk }}'> Delete </a></td>
 

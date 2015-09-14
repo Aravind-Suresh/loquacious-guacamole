@@ -35,8 +35,9 @@ def profile_register(request):
     
     else:
         form = ProfileRegistrationForm()
+    details = Details.objects.get(user=request.user)
 
-    return render(request, 'register.html', {'form' : form })
+    return render(request, 'register.html', {'form' : form , 'sport' : str(details.sport)})
 
 @login_required
 def profile_edit(request, profile_id):
@@ -57,8 +58,8 @@ def profile_edit(request, profile_id):
             return HttpResponseRedirect('/profile/list/')   
     else:
         form = ProfileRegistrationForm(instance=profile)
-
-    return render(request, 'profileEdit.html', {'form' : form , 'profile_id' : profile_id, 'error' : 'no'  })
+    details = Details.objects.get(user=request.user)
+    return render(request, 'profileEdit.html', {'form' : form , 'profile_id' : profile_id, 'error' : 'no',  'sport' : str(details.sport)  })
 
 @login_required
 def profile_delete(request, profile_id):
@@ -74,4 +75,5 @@ def profile_delete(request, profile_id):
 def profile_list(request):
     user = request.user
     profiles = Profile.objects.filter(user_id=user.pk)
-    return render(request, 'profileList.html', { 'profiles_list' : profiles })
+    details = Details.objects.get(user=request.user)
+    return render(request, 'profileList.html', { 'profiles_list' : profiles, 'sport':details.sport })
