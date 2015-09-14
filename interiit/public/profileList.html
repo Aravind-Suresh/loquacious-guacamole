@@ -1,0 +1,102 @@
+	
+<style>
+th {
+	font-size:0.8em;
+}
+td {
+	font-size:0.9em;
+}
+</style>
+{% extends "portal_page.html" %}
+{% block title %}profile list{% endblock %}
+{% block content %}
+	<table id="myTable" class="display" cellspacing="0" width="100%">
+	<thead>
+		<tr align="center"><th> NAME</th>
+			<th> GENDER</th>
+			<th> PHONE NO.</th>
+			<!-- <th> PARENT'S NO.</th> -->
+			<th> EMAIL</th>
+			<!-- <th> FOOD </th> -->
+			<!-- <th> T-SHIRT </th> -->
+			<!-- <th>ROLL NO.</th> -->
+			<!-- <th>BLOOD GROUP</th> -->
+			<th>EVENT 1</th>
+			<th>EVENT 2</th>
+			<th>EVENT 3</th>
+			<th>RELAY EVENT 1</th>
+			<th>RELAY EVENT 2</th>
+			<th></th>
+			<th></th>
+		</tr>
+		</thead>
+	<tbody>
+		{% for profile in profiles_list %}
+		<tr align="center">
+			<td>{{ profile.name }}</td>
+			<td>{{ profile.gender }}</td>
+			<td>{{ profile.phone_number }}</td>
+			<!-- <td>{{ profile.parents_phone_number }}</td> -->
+			<td>{{ profile.email_id }}</td>
+			<!-- <td>{{ profile.food_preference }}</td> -->
+			<!-- <td>{{ profile.tshirt_size }}</td> -->
+			<!-- <td>{{ profile.Roll_number }}</td> -->
+			<!-- <td>{{ profile.blood_group }}</td> -->
+			<td>{{ profile.event1}}</td>
+			<td>{{ profile.event2}}</td>
+			<td>{{ profile.event3}}</td>
+			<td>{{ profile.relay_event1}}</td>
+			<td>{{ profile.relay_event2}}</td>
+			<td><a data-target="#registermodal" href = '/profile/edit/{{ profile.pk }}'> Edit </a></td>
+			<td><a href = '/profile/delete/{{ profile.pk }}'> Delete </a></td>
+
+		</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+	</br>
+	<div class="wrapper">
+	
+	  <a data-target="#registermodal" href="/register/" ><button class="btn btn-success btn-large">ADD</button></a>
+	
+	</div>
+
+	<div id="registermodal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="registermodalLabel" aria-hidden="true">
+
+  
+  <div class="modal-body">
+    <p>Loading…</p>
+  </div>
+  
+</div>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+	$("a[data-target=#registermodal]").click(function(event) {
+  	event.preventDefault();
+  	var target = $(this).attr("href");
+  	$("#registermodal .modal-body").load(target, function() {
+   	$("#registermodal").modal("show");
+ 		});
+	});
+</script>
+
+  <script type="text/javascript" charset="utf8" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.9/js/dataTables.jqueryui.min.js"></script>
+ 
+  <script>
+$(document).ready(function() {
+    $('#myTable').DataTable();
+} );
+  </script>
+{% endblock %}
+
+
+
+

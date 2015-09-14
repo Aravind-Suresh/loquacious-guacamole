@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% comment %}
+  This is the main template for all portal pages.
+{% endcomment %}
+
+{% block head %}
+  <title>Inter IIT 2015 | {% block title %}{% endblock %}</title>
+  <style type="text/css">
+  .logout {
+    padding: 10px;
+    font-size: 20px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    }
+    .wrapper {
+      padding-top: 45px;
+      position: relative;
+      width:100%0;
+      margin-left:47%;
+    }
+
+    .headers {
+      margin-left: 40%;
+    }
+
+    .welcome {
+      margin-left: 45%;
+    }
+   
+    </style>
+  
+
+{% endblock %}
+
+{% block body %}
+  <div class="headers"><header>
+    <h1>Inter IIT | Team Profiles</h1>
+  </header></div>
+  <div class="welcome">
+  <section>
+    <h3>Welcome, {{ user.username }}</h3>
+   </br>
+   </br>
+  </section>
+  </div>
+    <div class="logout">
+                <a href="/logout/">LOGOUT</a>
+    </div> 
+  
+
+  {% block content %}{% endblock %}
+
+  <footer>
+    <span>&copy; 2015, Inter IIT 2015</span>
+  </footer>
+  {% endblock %}

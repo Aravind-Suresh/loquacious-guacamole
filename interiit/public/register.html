@@ -1,0 +1,122 @@
+
+<div style="background-color: white;
+display: inline-block;
+margin-left : 35%;
+margin-top: 10%;
+border-radius: 1em;">
+<form name="myForm" class = "form-horizontal" action="/register/" method="post" enctype="multipart/form-data" style="padding : 20px;" onsubmit="return validateForm()">
+ <table>
+    {% csrf_token %}
+    {{ form.as_table }}
+</table>
+</br>
+</br>
+<input class="btn btn-success btn-large" type="submit" value="Submit" style="margin-bottom:8px; margin-left:38%;" />
+</form>
+
+
+
+<button class="btn btn-danger btn-large" data-dismiss="modal" aria-hidden="true" style="margin-bottom:8px; margin-left:80%;">Close</button>
+
+
+<script>
+var labels = document.getElementsByTagName('LABEL');
+var arr = ["Name", "Gender", "Blood group", "Roll number", "Event 1", "Event 2", "Event 3", "Relay event 1", "Relay event 2", "Phone number", 
+"Parent's phone number", "Email ID", "Image", "Food", "T shirt size"]
+for(var i=0; i<labels.length; ++i) {
+ if(labels[i].htmlFor == "id_name") {
+    labels[i].innerHTML = "Name";
+}
+else if(labels[i].htmlFor == "id_gender") {
+    labels[i].innerHTML = "Gender";
+}
+else if(labels[i].htmlFor == "id_blood_group") {
+    labels[i].innerHTML = "Blood group";
+}
+else if(labels[i].htmlFor == "id_Roll_number") {
+    labels[i].innerHTML = "Roll number";
+}
+else if(labels[i].htmlFor == "id_event1") {
+    labels[i].innerHTML = "Event 1";
+}
+else if(labels[i].htmlFor == "id_event2") {
+    labels[i].innerHTML = "Event 2";
+}
+else if(labels[i].htmlFor == "id_event3") {
+    labels[i].innerHTML = "Event 3";
+}
+else if(labels[i].htmlFor == "id_relay_event1") {
+    labels[i].innerHTML = "Relay event 1";
+}
+else if(labels[i].htmlFor == "id_relay_event2") {
+    labels[i].innerHTML = "Relay event 2";
+}
+else if(labels[i].htmlFor == "id_phone_number") {
+    labels[i].innerHTML = "Phone number";
+}
+else if(labels[i].htmlFor == "id_parents_phone_number") {
+    labels[i].innerHTML = "Parent's phone number";
+}
+else if(labels[i].htmlFor == "id_email_id") {
+    labels[i].innerHTML = "Email ID";
+}
+else if(labels[i].htmlFor == "id_image") {
+    labels[i].innerHTML = "Image";
+}
+else if(labels[i].htmlFor == "id_food_preference") {
+    labels[i].innerHTML = "Food";
+}
+else if(labels[i].htmlFor == "id_tshirt_size") {
+    labels[i].innerHTML = "T-shirt size";
+}
+}
+function validateForm() {
+    var x = document.forms["myForm"]["name"].value;
+    if (x == null || x == "") {
+        alert("Name must be filled out");
+        return false;
+    } 
+    var x = document.forms["myForm"]["gender"].value;
+    if (x == null || x == "") {
+        alert("Gender must be filled out");
+        return false;
+    }
+    var x = document.forms["myForm"]["blood_group"].value;
+    if (x == null || x == "") {
+        alert("Blood group must be filled out");
+        return false;
+    } 
+    var x = document.forms["myForm"]["Roll_number"].value;
+    if (x == null || x == "") {
+        alert("Roll number must be filled out");
+        return false;
+    } 
+    var x = document.forms["myForm"]["phone_number"].value;
+    if (x == null || x == "") {
+        alert("Phone number must be filled out");
+        return false;
+    }
+    var x = document.forms["myForm"]["parents_phone_number"].value;
+    if (x == null || x == "") {
+        alert("Parent's phone number must be filled out");
+        return false;
+    }
+    var x = document.forms["myForm"]["email_id"].value;
+    if (x == null || x == "") {
+        alert("Email id must be filled out");
+        return false;
+    }
+    var x = document.forms["myForm"]["food_preference"].value;
+    if (x == null || x == "") {
+        alert("Food preference must be filled out");
+        return false;
+    }
+    var x = document.forms["myForm"]["tshirt_size"].value;
+    if (x == null || x == "") {
+        alert("T-shirt size must be filled out");
+        return false;
+    }
+}
+</script>
+</div>
+
