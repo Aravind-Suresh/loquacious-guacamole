@@ -12,51 +12,97 @@ td {
 {% block content %}
 	<table id="myTable" class="display" cellspacing="0" width="100%">
 	<thead>
-		<tr align="center"><th> NAME</th>
+		<tr align="center">
+		{% if sport == 'Staff' %}
+			<th> NAME</th>
 			<th> GENDER</th>
 			<th> PHONE NO.</th>
-			<!-- <th> PARENT'S NO.</th> -->
-			<th> EMAIL</th>
+			<th> FOOD </th>
 			<!-- <th> FOOD </th> -->
 			<!-- <th> T-SHIRT </th> -->
 			<!-- <th>ROLL NO.</th> -->
 			<!-- <th>BLOOD GROUP</th> -->
-			{% if sport != 'water polo' %}
-			<th>EVENT 1</th>
-			<th>EVENT 2</th>
-			<th>EVENT 3</th>
-			<th>RELAY EVENT 1</th>
-			<th>RELAY EVENT 2</th>
-			{% else %}
-			<th>EVENT</th>
-			{% endif %}
+			<th>STAFF TYPE</th>
 			<th></th>
 			<th></th>
+		{% elif sport == 'Athletics' %}
+			<th> EVENT </th>
+			<th> NAME</th>
+			<th> GENDER</th>
+			<th> FOOD </th>
+			<th> PARTICIPANT TYPE </th>
+			<th></th>
+		{% elif sport == 'Weightlifting' %}
+			<th> EVENT </th>
+			<th> NAME</th>
+			<th> GENDER</th>
+			<th> FOOD </th>
+			<th> PARTICIPANT TYPE </th>
+			<th></th>
+		{% else %}
+			<th> NAME</th>
+			<th> GENDER</th>
+			<th> PHONE NO.</th>
+			<th> FOOD </th>
+			<th></th>
+			<th></th>
+		{% endif %}
 		</tr>
 		</thead>
 	<tbody>
 		{% for profile in profiles_list %}
 		<tr align="center">
+		{% if sport == 'Staff' %}
 			<td>{{ profile.name }}</td>
 			<td>{{ profile.gender }}</td>
 			<td>{{ profile.phone_number }}</td>
+			<td>{{ profile.food_preference }}</td>
+			<!-- <th> FOOD </th> -->
+			<!-- <th> T-SHIRT </th> -->
+			<!-- <th>ROLL NO.</th> -->
+			<!-- <th>BLOOD GROUP</th> -->
+			<td>{{ profile.staff_type }}</td>
+			<td><a data-target="#registermodal" href = '/profile/edit/{{ profile.pk }}'> Edit </a></td>
+			<td><a href = '/profile/delete/{{ profile.pk }}' onclick="return confirm('Are you sure you want to delete this item?');"> Delete </a></td>
+		{% elif sport == 'Athletics M' %}
+			<td>{{ profile.event }}</td>
+			<td>{{ profile.name }}</td>
+			<td>{{ profile.gender }}</td>
+			<td>{{ profile.food_preference }}</td>
+			<td>{{ profile.participant_type }}</td>
+			<td><a data-target="#registermodal" href = '/profile/edit/{{ profile.pk }}'> Edit </a></td>
+		{% elif sport == 'Athletics F' %}
+			<td>{{ profile.event }}</td>
+			<td>{{ profile.name }}</td>
+			<td>{{ profile.gender }}</td>
+			<td>{{ profile.food_preference }}</td>
+			<td>{{ profile.participant_type }}</td>		
+		{% elif sport == 'Weightlifting' %}
+			<td>{{ profile.event }}</td>
+			<td>{{ profile.name }}</td>
+			<td>{{ profile.gender }}</td>
+			<td>{{ profile.food_preference }}</td>
+			<td>{{ profile.participant_type }}</td>
+			<td><a data-target="#registermodal" href = '/profile/edit/{{ profile.pk }}'> Edit </a></td>
+		{% else %}
+			<td>{{ profile.name }}</td>
+			<td>{{ profile.gender }}</td>
+			<td>{{ profile.phone_number }}</td>
+			<td>{{ profile.food_preference }}</td>
+			<td><a data-target="#registermodal" href = '/profile/edit/{{ profile.pk }}'> Edit </a></td>
+			<td><a href = '/profile/delete/{{ profile.pk }}' onclick="return confirm('Are you sure you want to delete this item?');"> Delete </a></td>
+		{% endif %}
+						
+			
 			<!-- <td>{{ profile.parents_phone_number }}</td> -->
-			<td>{{ profile.email_id }}</td>
+		
 			<!-- <td>{{ profile.food_preference }}</td> -->
 			<!-- <td>{{ profile.tshirt_size }}</td> -->
 			<!-- <td>{{ profile.Roll_number }}</td> -->
 			<!-- <td>{{ profile.blood_group }}</td> -->
-			{% if sport != 'water polo' %}
-			<td>{{ profile.event1}}</td>
-			<td>{{ profile.event2}}</td>
-			<td>{{ profile.event3}}</td>
-			<td>{{ profile.relay_event1}}</td>
-			<td>{{ profile.relay_event2}}</td>
-			{% else %}
-			<td>Water Polo</td>
-			{% endif %}
-			<td><a data-target="#registermodal" href = '/profile/edit/{{ profile.pk }}'> Edit </a></td>
-			<td><a href = '/profile/delete/{{ profile.pk }}'> Delete </a></td>
+			
+			
+			
 
 		</tr>
 		{% endfor %}
@@ -64,9 +110,12 @@ td {
 	</table>
 	</br>
 	<div class="wrapper">
+	{% if sport != 'Weightlifting' %}
+	{% if sport != 'Athletics' %}
 	
 	  <a data-target="#registermodal" href="/register/" ><button class="btn btn-success btn-large">ADD</button></a>
-	
+	{% endif %}
+	{% endif %}
 	</div>
 
 	<div id="registermodal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="registermodalLabel" aria-hidden="true">

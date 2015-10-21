@@ -83,7 +83,7 @@ DATABASES = {
     'default': {  'ENGINE': 'django.db.backends.mysql',
         'NAME': 'interiit',
 	'USER': 'root',
-	'PASSWORD': 'password',
+	'PASSWORD': 'qwertyuioP',
 	'HOST': '',
 	'PORT': ''
     }
