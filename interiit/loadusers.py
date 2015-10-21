@@ -5,9 +5,9 @@ import random
 import os
 import csv
 
-iit_list = ['IIT MADRAS']
 
-# iit_list = ['IIT MADRAS','IIT KHARAGPUR','IIT BOMBAY','IIT KANPUR','IIT DELHI','IIT GUWAHATI','IIT ROORKEE','IIT BHUBANESWAR','IIT GANDHINAGAR','IIT HYDERABAD','IIT JODHPUR','IIT PATNA','IIT ROPAR','IIT INDORE','IIT MANDI','IIT VARANASI']
+
+iit_list = ['IIT MADRAS','IIT KHARAGPUR','IIT BOMBAY','IIT KANPUR','IIT DELHI','IIT GUWAHATI','IIT ROORKEE','IIT BHUBANESWAR','IIT GANDHINAGAR','IIT HYDERABAD','IIT JODHPUR','IIT PATNA','IIT ROPAR','IIT INDORE','IIT MANDI','IIT VARANASI']
 sports_list = ['Staff','Athletics M','Athletics F','Badminton','Basketball','Cricket','FootBall','Hockey','Squash','Table Tennis','Tennis','Volleyball','Weightlifting',]
 sports_events = ['100 M','200 M','400 M', '800 M', '1500 M', '5000 M', '110 M Hurdles', '400 M Hurdles', 'High Jump', 'Long Jump', 'Triple Jump', 'Pole Vault', 'Shot Put', 'Discuss Throw', 'Javelin Throw', 'Hammer Throw', '4x100 M Relay', '4x400 M Relay']    
 sports_events_f = ['100 M','200 M','400 M', '800 M','1500 M', 'High Jump', 'Long Jump', 'Shot Put', 'Discuss Throw', '4x100 M Relay', '4x400 M Relay']
